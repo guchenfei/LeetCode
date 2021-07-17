@@ -65,16 +65,46 @@ public class ReverseInteger {
             x = x < 0 ? -x : x;
             String str = String.valueOf(x);
             char[] chars = str.toCharArray();
-            int len = chars.length;
-            char[] newChars = new char[len];
-            for (int i = len - 1; i >= 0; i--) {
-                newChars[len - 1 - i] = chars[i];
+            //方案一：利用另一个数组进行倒置
+//            int len = chars.length;
+//            char[] newChars = new char[len];
+//            for (int i = len - 1; i >= 0; i--) {
+//                newChars[len - 1 - i] = chars[i];
+//            }
+
+            //方案二：利用一个数组进行内部首尾交换，分奇偶情况
+            //startIndex >= endIndex交换结束，否则小于进行首尾交换
+//            int startIndex = 0;
+//            int endIndex = chars.length-1;
+//
+//            while (startIndex < endIndex){
+//                char temp = chars[startIndex];
+//                chars[startIndex] = chars[endIndex];
+//                chars[endIndex] = temp;
+//                startIndex++;
+//                endIndex--;
+//            }
+
+            //方案三:用数学的方式进行高效计算
+            int last = 0;
+            int result = 0;
+            while ((last = x % 10) != x) {
+                result = result * 10 + last;
+                x/=10;
+            }
+            if (last != 0){
+                long re = (result * 10L) + last;
+                if (re >Integer.MAX_VALUE||re<Integer.MIN_VALUE){
+                    result=0;
+                }else {
+                    result = (int)re;
+                }
             }
 
-            String s = String.valueOf(newChars);
-            long aLong = Long.valueOf(s);
-            boolean b = aLong > Integer.MAX_VALUE || aLong < Integer.MIN_VALUE;
-            int result = b ? 0 : (int) aLong;
+//            String s = String.valueOf(chars);
+//            long aLong = Long.parseLong(s);
+//            boolean b = aLong > Integer.MAX_VALUE || aLong < Integer.MIN_VALUE;
+//            int result = b ? 0 : (int) aLong;
             return result * sign;
         }
     }
