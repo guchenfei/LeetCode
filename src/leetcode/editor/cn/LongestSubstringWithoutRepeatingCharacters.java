@@ -51,7 +51,7 @@ public class LongestSubstringWithoutRepeatingCharacters {
          * 1.定义hash算法,这里由于存放的字符串都是ASCII码前边的可以用int范围内表示,
          *      即：a -> 97简化hash算法直接作为index值,hash容器存入该字符出现于字符串中位置
          * 2.定义双指针
-         *   start = 0     
+         *   start = 0
          *   right = 1
          *   通过right指针不断遍历取出字符，根据hash算法查找是否存在
          *   （1）没有相同字符（即不存在该字符于当前字符串合法index）通过hash算法将字符位置存入
