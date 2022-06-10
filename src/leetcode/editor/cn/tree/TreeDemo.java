@@ -99,6 +99,30 @@ public class TreeDemo {
     /**
      * 中序遍历更优解,莫里斯遍历
      */
-
-
+    public List<Integer> inorderTraversalMorris(TreeNode root){
+        List<Integer> res = new ArrayList<>();
+        TreeNode exPoint = null;
+        while (root != null){
+            //找到左子树中序遍历最后一个节点
+            if(root.leftNode!= null){
+                exPoint = root.leftNode;
+                while (exPoint.rightNode!= null&&exPoint.rightNode!=root){
+                    exPoint=exPoint.rightNode;
+                }
+                if (exPoint.rightNode == null){
+                    exPoint.rightNode= root;
+                    root = root.leftNode;
+                }else {
+                    //说明左子树已经遍历完了
+                    res.add(root.val);
+                    exPoint.rightNode = null;
+                    root = root.rightNode;
+                }
+            }else {
+                res.add(root.val);
+                root = root.rightNode;
+            }
+        }
+        return res;
+    }
 }
