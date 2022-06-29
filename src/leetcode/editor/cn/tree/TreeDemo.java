@@ -8,7 +8,8 @@ import java.util.*;
  */
 public class TreeDemo {
     public static void main(String[] args) {
-
+        int[] arr = new int[]{1,2,3,4,5,6};
+        TreeNode treeNode = new TreeDemo().createTree(0,arr);
     }
 
     /**
@@ -325,5 +326,25 @@ public class TreeDemo {
         num+= root.val;
         max[0] = Math.max(max[0],num);
         return new Result(minNodeVal,maxNodeVal,num,true);
+    }
+
+    /**
+     * 构造完全二叉树,我们通过数组索引(begin 0)和完全二叉树性质对照存在如下关系
+     * 1.完全二叉树左节点索引是根节点索引2倍+1
+     * 2.完全二叉树右节点索引是根节点索引2倍+2
+     * 通过这样规律将数组中的元素依次放入每层节点中形成完全二叉树
+     *
+     * @param index 数组元素开始索引
+     * @param arr 待放置数组
+     * @return 构成完全二叉树的TreeNode
+     */
+    public TreeNode createTree(int index,int[] arr){
+        if(index >= arr.length){
+            return null;
+        }
+        TreeNode root = new TreeNode(arr[index]);
+        root.leftNode = createTree(index*2+1,arr);
+        root.rightNode = createTree(index*2 +2,arr);
+        return root;
     }
 }
