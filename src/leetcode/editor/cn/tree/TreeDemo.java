@@ -1,6 +1,5 @@
 package leetcode.editor.cn.tree;
 
-import java.sql.ResultSet;
 import java.util.*;
 
 /**
