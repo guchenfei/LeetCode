@@ -58,9 +58,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ImplementMagicDictionary {
+public class P676ImplementMagicDictionary {
     public static void main(String[] args) {
-        MagicDictionary solution = new ImplementMagicDictionary().new MagicDictionary();
+        MagicDictionary solution = new P676ImplementMagicDictionary().new MagicDictionary();
 
     }
 
