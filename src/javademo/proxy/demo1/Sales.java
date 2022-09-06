@@ -1,4 +1,4 @@
-package javademo.proxy;
+package javademo.proxy.demo1;
 
 public class Sales implements IPerson
 {

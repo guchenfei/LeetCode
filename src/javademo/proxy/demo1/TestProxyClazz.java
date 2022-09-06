@@ -1,4 +1,4 @@
-package javademo.proxy;
+package javademo.proxy.demo1;
 
 import org.junit.Test;
 
