@@ -47,7 +47,6 @@ public class TestProxyClazz {
         System.out.println(res);
     }
 
-
     @Test
     public void test02() {
         TestInterface t = TestFactory.newInstance(TestInterface.class);
